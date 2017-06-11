@@ -1,0 +1,134 @@
+#include<stdio.h>
+void main()
+{
+int a[10][10];
+int dir[4][3]={{0,1},{1,0},{0,-1},{-1,0}};
+//a pre defined direction
+int no=1,i,j,m=0,n=0,max,k,flag=0,l=0,f=0;
+int count=0;
+printf("enter the index of the matrix:");
+scanf("%d",&max);
+// check if the index is odd
+if(max%2==0)
+{
+printf("enter a valid no");
+}
+   else 
+{
+scanf("enter the values");
+for(i=0;i<max;i++)
+
+{
+for(j=0;j<max;j++)
+{
+ scanf("\n%d",&a[i][j]);	
+}
+}
+printf("\n");
+for(i=0;i<max;i++)
+
+{
+for(j=0;j<max;j++)
+{
+ printf("%d",a[i][j]);	
+}
+printf("\n");
+}
+int cen;
+cen=max/2;
+//calculate centre
+printf("\n%d",a[cen][cen]);
+ l=cen-1;
+     f=cen+1;
+   //main code starts  
+for(i=0;i<=cen;i++)
+{
+      
+       for(j=0;j<4;j++)
+       {
+       	if((j==0)&&(i!=cen))
+       	    no++;
+       	    
+       	 	
+ if(count==0)
+{
+   count++;
+continue;
+     }     
+       	    
+       	
+       m=dir[j][0];
+n=dir[j][1];
+ 
+       	for(k=0;k<no;k++)
+{
+
+     
+printf("\t%d",a[l+m][f+n]);
+l=l+m;
+f=f+n;
+//adding number and the dir[][] to go in that direction 
+}
+//when cen is = to i break as already 1 direction(j=0) is over
+if(i==cen)
+{
+flag=1;
+break;
+}
+if( (j==1)&&(i!=0))
+{
+no++;
+}
+
+}    
+if(flag==1)
+ {
+   break;
+} 
+   
+}
+   }
+}
+#include<stdio.h>
+int main()
+{
+int arr[4][3]={{1,1},{0,-1},{-1,0}};
+int no=0,i,j,ind,h=0;
+int l=-1,m=-1,n=1;
+printf("enter the index of the matrix:");
+scanf("%d",&ind);
+printf("%d",ind);
+int brr[10][10]={0};
+no=ind;
+
+for(h=0;h<=ind/3;h++)
+{
+
+for(j=0;j<3;j++)
+{
+for(i=0;i<no;i++)
+{
+int x=arr[j][0];
+int y=arr[j][1];
+l=l+x;
+m=m+y;
+brr[l][m]=n;
+n++;
+}	
+no--;
+}
+}
+printf("\n\n");
+   for(i=0;i<ind;i++)
+   {
+   	for(j=0;j<ind;j++)
+   	{
+   	if( (brr[i][j])!=0)
+   	{
+   	printf("%d\t",brr[i][j]);
+}
+}
+printf("\n\n\n");
+}
+return 0;	
+}
